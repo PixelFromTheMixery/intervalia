@@ -7,6 +7,9 @@ signal new_timer(timer_data)
 func _buffer():
 	pass
 
+var focused: bool = false
+var pom: Node = global.selected
+var data: Dictionary = {}
 
 @onready var window: Window = $"../../"
 
@@ -30,12 +33,9 @@ func _buffer():
 @onready var display_pomo: Label = $VBox_Pomo/HBox_Details/Label_Pomo
 @onready var display_long: Label = $VBox_Pomo/HBox_Details/Label_Long
 
-var focus: bool = false
-var pom: Node = global.selected
-var data: Dictionary = {}
 
 func _ready():
-	if focus:
+	if focused:
 		window.title = "Editing %s" % pom.title
 		title.text = pom.title
 		work.value = pom.base_work
@@ -79,7 +79,8 @@ func _ready():
 
 static func instantiate(selected: bool): 
 	var instance = load('res://scenes/windows/edit_window.tscn').instantiate()
-	instance.focus = selected
+	var edit_script = instance.get_child(0).get_child(0)
+	edit_script.focused = selected
 	return instance
 
 func close():
@@ -96,7 +97,7 @@ func _on_button_delete_pressed():
 	pass 
 
 func _on_button_confirm_pressed():
-	if focus:
+	if focused:
 		pom.title = title.text
 		pom.base_work = work.value
 		pom.base_rest = rest.value
@@ -110,6 +111,7 @@ func _on_button_confirm_pressed():
 		pom.auto_work = autowork.button_pressed
 		pom.auto_rest = autorest.button_pressed
 		pom.populate()
+		pom._on_button_title_toggled(true)
 		close()
 	else:
 		data["title"] = title.text

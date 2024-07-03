@@ -41,17 +41,17 @@ var focus: bool
 @onready var add_window = preload("res://scenes/windows/add_time.tscn")
 
 func _ready():
-	focus = get_meta("focus")
+	focus = get_meta("focus", false)
 	if focus:
 		unpack_data(global.default_pomo())
 		global.update_selected(self)
 		var title_button: Button = $Margin/VBox_Pomo/HBox_Title/Button_Title
 		title_button.flat = true
-
 	populate()
 
+
 static func instantiate(data: Dictionary):
-	var instance = load('res://scenes/prefabs/pomodoro.tscn').instantiate()
+	var instance = load('res://scenes/prefabs/timer.tscn').instantiate()
 	instance.unpack_data(data)
 	return instance
 
@@ -113,7 +113,7 @@ func reset_variable(variable:String):
 	populate()
 	signals.update_focus.emit(true)
 
-func _on_button_title_toggled(toggled_on:bool):
+func _on_button_title_toggled(_toggled_on:bool):
 	global.update_selected(self)
 
 func _on_button_stop_pressed():

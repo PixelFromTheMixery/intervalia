@@ -13,6 +13,7 @@ func load_data(file_path: String, data: Variant, base_data: Variant) -> Variant:
 	if not FileAccess.file_exists(file_path):
 		print("First run, setting data to default")
 		DirAccess.make_dir_absolute("user://saves")
+		
 		save_data(file_path, base_data)
 	else:
 		#nonprod

@@ -21,6 +21,8 @@ extends VBoxContainer
 @onready var work_time: Label = $HBox_Actions/Label_Work
 @onready var play: Button = $HBox_Actions/Button_Play
 
+@onready var button_group = preload("res://selected.tres")
+
 var max_pomo: int
 var play_image: Texture2D = preload("res://assets/image/play-200xx.png")
 var pause_image: Texture2D = preload("res://assets/image/pause-200xx.png")
@@ -29,6 +31,7 @@ var stop_image: Texture2D = preload("res://assets/image/stop-200xx.png")
 func populate_ui(pomo):
 	max_pomo = pomo["base_pomo"]
 	title.text = pomo["title"]
+	title.button_group = button_group
 	rest.disabled = not pomo["auto_rest"]
 	dynamic.disabled = not pomo["dynamic"]
 	mute.disabled = not pomo["mute"]

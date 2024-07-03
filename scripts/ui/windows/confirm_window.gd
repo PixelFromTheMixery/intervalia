@@ -18,8 +18,9 @@ var unpacked_instance2: Node
 static func instantiate(confirm_data:Array): 
 	var instance = load('res://scenes/windows/confirm_window.tscn').instantiate()
 	instance.parent_node = confirm_data[0]
-	instance.packed_scene = confirm_data[1]
-	instance.packed_scene = confirm_data[2]
+	instance.packed_scene1 = confirm_data[1]
+	if confirm_data[2] != null:
+		instance.packed_scene2 = confirm_data[2]
 	instance.type = confirm_data [3]
 	instance.title_text = confirm_data[4]
 	instance.mess_text = confirm_data[5]
@@ -36,8 +37,13 @@ func _ready():
 	accept.text = accept_text
 	other.text = other_text
 	skip = settings.skip_check[type]
-	unpacked_instance1 = packed_scene1.instantiate()
-	unpacked_instance2 = packed_scene2.instantiate()
+	match type:
+		"edit_pomo":
+			unpacked_instance1 = editor.instantiate(true)
+		_:
+			unpacked_instance1 = packed_scene1.instantiate()
+	if unpacked_instance2 != null:
+		unpacked_instance2 = packed_scene2.instantiate()
 
 	if skip:
 		confirmed()
@@ -53,6 +59,7 @@ func confirmed():
 			pass
 	parent_node.add_child(unpacked_instance1)
 	close()
+
 
 func _on_button_cancel_pressed():
 	close()
@@ -70,7 +77,6 @@ func _on_close_requested():
 func _on_button_other_pressed():
 	match type:
 		"edit_pomo":
-			unpacked_instance1.focus = true
 			if global.selected.dynamic == true and global.selected.empty != true:
 				global.selected.queue_stop = true 
 				if global.selected.working:
@@ -82,5 +88,5 @@ func _on_button_other_pressed():
 			else:
 				confirmed()
 		"add_pomo":
-			pass
+			confirmed()
 	close()

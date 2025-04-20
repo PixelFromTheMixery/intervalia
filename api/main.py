@@ -1,4 +1,6 @@
 from utils.docs import description, tags_metadata
+
+from fastapi.middleware.cors import CORSMiddleware
 from middlewares.exception_middleware import ExceptionMiddleware
 import routers
 
@@ -12,5 +14,13 @@ app = FastAPI(
 )
 
 app.add_middleware(ExceptionMiddleware)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["http://localhost:19006"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app.include_router(routers.v1_router, prefix="/api")

@@ -20,4 +20,4 @@ async def get_root():
 async def get_health(health_service: HealthService = Depends(get_health_service)):
     """Health Endpoint, should always return 200 OK"""
     logger.info("Health endpoint called")
-    return await health_service.check_health("OK")
+    return await health_service.check_health(health_service, "OK")

@@ -1,5 +1,6 @@
 {
 	"configurations": [
+
 		{
 			"name": "Python Debugger: FastAPI",
 			"type": "debugpy",
@@ -11,11 +12,5 @@
 				"PYTHONPATH": "${workspaceFolder}/api/app"
 			}
 		},
-		{
-			"name": "Expo Go",
-			"program": "${workspaceFolder}/app/index.ts",
-			"request": "launch",
-			"type": "expo"
-		}
 	]
 }

@@ -1,26 +1,26 @@
-import { StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  lightTheme: {
-    backgroundColor: "#fff",
-    color:"#000"
-  },
-  
-  darkTheme: {
-    backgroundColor: "#333",
-    color:"#fff"
-  },
+	lightTheme: {
+		backgroundColor: "#fff",
+		color: "#000",
+	},
 
-  centered: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
+	darkTheme: {
+		backgroundColor: "#333",
+		color: "#fff",
+	},
 
-  padded: {
-    padding: 5
-  },
+	centered: {
+		alignItems: "center",
+		justifyContent: "center",
+	},
 
-  margined: {
-    margin: 5
-  }
+	padded: {
+		padding: 5,
+	},
+
+	margined: {
+		margin: 5,
+	},
 });

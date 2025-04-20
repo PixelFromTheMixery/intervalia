@@ -1,18 +1,8 @@
-import { styles } from '@shared/style'
-import Web from '@bases/Web';
-import Android from '@bases/Android';
+import { Shell } from "@shared/components/Shell";
 
-
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import { Platform } from 'react-native';
-import React from 'react';
+import React from "react";
+import { useColorScheme } from "react-native";
 
 export default function App() {
-  return (
-    <SafeAreaProvider style={styles.lightTheme}>
-      <SafeAreaView>
-        {Platform.OS === 'web' ? <Web /> : <Android />}
-      </SafeAreaView>
-    </SafeAreaProvider>
-  );
+	return <Shell />;
 }

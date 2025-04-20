@@ -7,9 +7,15 @@
 			"module": "uvicorn",
 			"args": ["api.main:app", "--reload", "--port", "8001"],
 			"jinja": true,
-            "env":{
-                "PYTHONPATH" : "${workspaceFolder}/api/app"
-            }
+			"env": {
+				"PYTHONPATH": "${workspaceFolder}/api/app"
+			}
+		},
+		{
+			"name": "Expo Go",
+			"program": "${workspaceFolder}/app/index.ts",
+			"request": "launch",
+			"type": "expo"
 		}
 	]
 }

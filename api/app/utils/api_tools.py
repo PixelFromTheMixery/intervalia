@@ -1,5 +1,9 @@
-import requests
-import time
+from utils.logger import logger
+
+import os, requests, time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def make_call_with_retry(
     category: str,
@@ -10,14 +14,14 @@ def make_call_with_retry(
     delay=2,
 ):
     headers = {
-        "Authorization": f'Bearer {notion_key}',
+        "Authorization": f'Bearer {os.getenv("notion_key")}',
         "Content-Type": "application/json",
         "Notion-Version": "2022-06-28",
     }
 
     for attempt in range(1, retries + 1):
         try:
-            print(f"Attempt to {info}. {attempt} of {retries}")
+            logger.info(f"Attempt to {info}. {attempt} of {retries}")
             # Main call logic
             match category:
                 case "get":
@@ -45,8 +49,7 @@ def make_call_with_retry(
             if attempt < retries:
                 time.sleep(delay)  # Wait before retrying
             else:
-                print("Exceeded maximum retries. Returning None.")
-                return None
+                return {"error"}
         except ValueError as e:
             print(f"ValueError: {e}")
             return None

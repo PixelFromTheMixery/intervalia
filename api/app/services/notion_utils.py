@@ -1,55 +1,67 @@
+from models.databases import Databases, Database
+from models.users import Users
 from utils.api_tools import make_call_with_retry
 
 class NotionUtils:
     def __init__(self):
         self.url = "https://api.notion.com/v1/"
 
-    def get_users(self):
+    async def get_users(self):
         user_url = self.url + "users"
-        users = make_call_with_retry(
+        notion_users = make_call_with_retry(
             "get", user_url, "get users from notion"
         )
-        return users
+        user_list = []
+        for user in notion_users:
+            user_list.append({
+                "name": user["name"],
+                "id": user["id"],
+                "type": user["type"],
+            })
+        return Users(users=user_list)
 
-    def get_databases(self):
+    async def get_databases(self):
         data = {"filter": {"value": "database", "property": "object"}}
         search_url = self.url + "search"
-        databases = make_call_with_retry(
+        notion_databases = make_call_with_retry(
             "post", search_url, "fetch databases for selection", data
         )
-        return databases
+        databases = []
+        for database in notion_databases:
+            database_obj = {
+                "id": database["id"],
+                "title": database["title"][0]['text']['content'],
+                "properties": []
+            }
+            for prop in database["properties"]:
+                prop_type = database["properties"][prop]["type"]
+                prop_obj = {
+                   "name": database["properties"][prop]["name"],
+                   "type": prop_type,
+                }
+                if prop_type in ["status", "select", "multi_select"]:
+                    prop_obj["possible_values"] = database["properties"][prop][prop_type]["options"]
+                database_obj["properties"].append(prop_obj)
+            databases.append(database_obj)
+        return Databases(databases=databases)
 
-    def get_db_structure(self, database_id):
-        url = self.url + "databases/"
+    def match_db_structure(self, source: Database, target: Database):
+        for prop in source["properties"]:
+            del source["properties"][prop]["id"]
 
-        source_url = url + database_id
-        struct = make_call_with_retry("get", source_url, f"fetch database structure")[
-            "properties"
-        ]
-
-        filtered = {k: v for k, v in struct.items() if struct[k]["type"] != "relation"}
-
-        return filtered
-
-    def match_db_structure(self, target):
-        source_struct = self.get_db_structure(self.config.data["notion"]["task_db"])
-        for prop in source_struct:
-            del source_struct[prop]["id"]
-
-        dest_struct = self.get_db_structure(target)
-        for prop in dest_struct.keys():
-            del dest_struct[prop]["id"]
+        for prop in target["properties"].keys():
+            del target["properties"][prop]["id"]
 
         to_create = {
-            k: source_struct[k]
-            for k in source_struct
-            if k not in dest_struct
+            k: source["properties"][k]
+            for k in source["properties"]
+            if k not in target["properties"]
             and k in self.config.data["notion"]["log"]["sync_props"]
         }
         to_destroy = {
-            k: dest_struct[k]
-            for k in dest_struct
-            if k not in source_struct
+            k: target["properties"][k]
+            for k in target["properties"]
+            if k not in source["properties"]
             and k in self.config.data["notion"]["log"]["sync_props"]
         }
 

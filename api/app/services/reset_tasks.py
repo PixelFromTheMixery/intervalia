@@ -1,4 +1,4 @@
-from notion.notion_utils import NotionUtils
+from services.notion_utils import NotionUtils
 
 import re
 from datetime import datetime, timedelta

@@ -5,13 +5,16 @@ description = """
 
 tags_metadata = [
     {
+        "name": "notion",
+        "description": "Endpoints for notion interaction",
+        "externalDocs": {
+            "description": "Notion API docs",
+            "url": "https://developers.notion.com/reference"
+        },
+    },
+    {
         "name": "general",
         "description": "Endpoints for general use"
-        # you can include an external doc with
-        #"externalDocs":{
-        #    "description": "External doc name",
-        #    "url": "https://some.url"
-        #}
     },
     {
         "name": "v1",

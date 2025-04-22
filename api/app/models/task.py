@@ -1,5 +1,8 @@
 from pydantic import BaseModel
+from typing import Dict, Any
+
 
 class Task(BaseModel):
+    id: str
     name: str
-    optional_value: bool = None
+    properties: Dict[str, Any]

@@ -1,8 +1,9 @@
 import { Shell } from "@shared/components/Shell";
 
 import React from "react";
-import { useColorScheme } from "react-native";
 
 export default function App() {
-	return <Shell />;
+	return (
+			<Shell />
+	);
 }

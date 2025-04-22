@@ -1,13 +1,3 @@
-## Web Server
-.env
-
-# Python testing
-__pycache__
-
-## App
-# dependencies
-node_modules/
-
 # Expo
 .expo/
 dist/
@@ -39,3 +29,6 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# modules
+node_modules/*

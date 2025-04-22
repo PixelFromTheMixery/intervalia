@@ -1,4 +1,4 @@
-import { fetchExample, fetchDatabases, fetchDatabase, fetchTask } from "@scripts/general";
+import { fetchExample } from "@scripts/general";
 
 import { useState } from "react";
 import { Button, Platform, ScrollView, Text, View } from "react-native";
@@ -30,33 +30,6 @@ export function MakeCall() {
 		<View>
 			<Button
 				title={loading ? "Loading..." : "Make Call"}
-				onPress={handlePress}
-				disabled={loading}
-			/>
-			<ScrollView>
-				{error && <Text style={{ color: "red" }}>{error.error}</Text>}
-				{data && <Text>{JSON.stringify(data, null, 2)}</Text>}
-			</ScrollView>
-			<Button
-				title={loading ? "Loading..." : "Fetch Databases"}
-				onPress={handlePress}
-				disabled={loading}
-			/>
-			<ScrollView>
-				{error && <Text style={{ color: "red" }}>{error.error}</Text>}
-				{data && <Text>{JSON.stringify(data, null, 2)}</Text>}
-			</ScrollView>
-			<Button
-				title={loading ? "Loading..." : "Fetch Database"}
-				onPress={handlePress}
-				disabled={loading}
-			/>
-			<ScrollView>
-				{error && <Text style={{ color: "red" }}>{error.error}</Text>}
-				{data && <Text>{JSON.stringify(data, null, 2)}</Text>}
-			</ScrollView>
-			<Button
-				title={loading ? "Loading..." : "Fetch Task"}
 				onPress={handlePress}
 				disabled={loading}
 			/>

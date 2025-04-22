@@ -1,4 +1,12 @@
 {
 	"configurations": [
+        {
+			"type": "node",
+			"request": "launch",
+			"name": "Run Expo (tunnel, clear cache)",
+			"runtimeExecutable": "expo",
+			"cwd": "${workspaceFolder}",
+			"args": ["start", "--tunnel", "--clear"]
+		}
 	]
 }

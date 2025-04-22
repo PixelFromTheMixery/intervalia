@@ -1,6 +1,19 @@
 {
   "name": "app",
   "version": "1.0.0",
+  "private": true,
+  "description": "Web/Android App for interacting with the notiuon-automation web server",
+  "homepage": "https://github.com/PixelFromTheMixery/intervalia#readme",
+  "bugs": {
+    "url": "https://github.com/PixelFromTheMixery/intervalia/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PixelFromTheMixery/intervalia.git"
+  },
+  "license": "ISC",
+  "author": "Aya Jackson",
+  "type": "commonjs",
   "main": "scripts/index.ts",
   "scripts": {
     "start": "expo start",
@@ -24,6 +37,5 @@
     "@babel/core": "^7.25.2",
     "@types/react": "~18.3.12",
     "typescript": "^5.3.3"
-  },
-  "private": true
+  }
 }

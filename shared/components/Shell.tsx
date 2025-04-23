@@ -7,8 +7,10 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 export function Shell() {
 	return (
 		<SafeAreaProvider>
-			<SafeAreaView>
-				<View>{Platform.OS === "web" ? <Web /> : <Android />}</View>
+			<SafeAreaView style={{flex: 1}}>
+				<View  style={{flex: 1}}>
+					{Platform.OS === "web" ? <Web /> : <Android />}
+				</View>
 			</SafeAreaView>
 		</SafeAreaProvider>
 	);

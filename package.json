@@ -1,41 +1,45 @@
 {
-  "name": "app",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Web/Android App for interacting with the notiuon-automation web server",
-  "homepage": "https://github.com/PixelFromTheMixery/intervalia#readme",
-  "bugs": {
-    "url": "https://github.com/PixelFromTheMixery/intervalia/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PixelFromTheMixery/intervalia.git"
-  },
-  "license": "ISC",
-  "author": "Aya Jackson",
-  "type": "commonjs",
-  "main": "scripts/index.ts",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
-  },
-  "dependencies": {
-    "@expo/metro-runtime": "~4.0.1",
-    "expo": "~52.0.46",
-    "expo-secure-store": "~14.0.1",
-    "expo-status-bar": "~2.0.1",
-    "react": "18.3.1",
-    "react-art": "^18.2.0",
-    "react-dom": "18.3.1",
-    "react-native": "0.76.9",
-    "react-native-safe-area-context": "^4.12.0",
-    "react-native-web": "^0.19.13"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@types/react": "~18.3.12",
-    "typescript": "^5.3.3"
-  }
+	"name": "app",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Web/Android App for interacting with the notiuon-automation web server",
+	"homepage": "https://github.com/PixelFromTheMixery/intervalia#readme",
+	"bugs": {
+		"url": "https://github.com/PixelFromTheMixery/intervalia/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PixelFromTheMixery/intervalia.git"
+	},
+	"license": "ISC",
+	"author": "Aya Jackson",
+	"type": "commonjs",
+	"main": "scripts/index.tsx",
+	"scripts": {
+		"start": "expo start",
+		"android": "expo start --android",
+		"ios": "expo start --ios",
+		"web": "expo start --web"
+	},
+	"dependencies": {
+		"@expo/metro-runtime": "~4.0.1",
+		"@rneui/themed": "^4.0.0-rc.8",
+		"expo": "~52.0.46",
+		"expo-secure-store": "~14.0.1",
+		"expo-status-bar": "~2.0.1",
+		"nativewind": "^4.1.23",
+		"react": "18.3.1",
+		"react-art": "^18.2.0",
+		"react-dom": "18.3.1",
+		"react-native": "0.76.9",
+		"react-native-safe-area-context": "^4.12.0",
+		"react-native-sqlite-storage": "^6.0.1",
+		"react-native-web": "^0.19.13"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.25.2",
+		"@types/react": "~18.3.12",
+		"@types/react-native-sqlite-storage": "^6.0.5",
+		"typescript": "^5.3.3"
+	}
 }

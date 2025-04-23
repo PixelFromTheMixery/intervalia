@@ -1,11 +1,13 @@
 {
-  "extends": "./node_modules/expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true,
-    "paths": {
-			"@bases/*": ["./bases/*"],
-			"@scripts/*": ["./scripts/*"],
-			"@shared/*": ["./shared/*"]
+	"extends": "./node_modules/expo/tsconfig.base",
+	"compilerOptions": {
+		"strict": true,
+		"baseUrl": ".",
+		"paths": {
+			"@shared/*": ["shared/*"],
+			"@scripts/*": ["scripts/*"],
+			"@components/*": ["components/*"],
+			"@bases/*": ["bases/*"]
 		}
-  }
+	}
 }

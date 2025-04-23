@@ -1,9 +1,9 @@
 import { styles } from "@shared/stylesheet";
 import ProjectList from "@bases/Projects"
+import Tasklist from "@bases/TaskList"
 
 import { View } from "react-native";
-import { Header, Icon, Text } from "@rneui/themed";
-import { TouchableOpacity } from "react-native";
+import { Header, Text } from "@rneui/themed";
 
 export default function Web() {
 	return <View style={{ flexDirection: "row", flex: 1}}>
@@ -15,8 +15,8 @@ export default function Web() {
       />
       <ProjectList/>
     </View>
-    <View style={[styles.centered, {flex:4, backgroundColor:"#bbb"}]}>
-      <Text>Task List PlaceHolder</Text>
+    <View style={[{flex:4, backgroundColor:"#bbb"}]}>
+      <Tasklist/>
     </View>
     <View style={[styles.centered, {flex:3}]}>
       <Text>Task PlaceHolder</Text>

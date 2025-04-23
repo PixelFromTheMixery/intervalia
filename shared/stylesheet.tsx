@@ -6,6 +6,17 @@ export const styles = StyleSheet.create({
 		color: "#000",
 	},
 
+	taskListSummary:{
+		flexDirection:"row",
+		flex:1,
+		padding: 10,
+		backgroundColor:"#fff",
+		height: 60,		
+		justifyContent:"space-between",
+		alignItems: "center",
+		borderRadius:15
+	},
+
 	hero:{
 		backgroundColor: "#1f39ff",
 		alignItems: "center",

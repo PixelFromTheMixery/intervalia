@@ -7,7 +7,7 @@ import { Header, Text } from "@rneui/themed";
 
 export default function Web() {
 	return <View style={{ flexDirection: "row", flex: 1}}>
-    <View style={{flex:2}}>
+    <View style={{minWidth:300}}>
       <Header
       leftComponent={{icon: "menu", color:"#fff"}}
       centerComponent={{text: "Projects", style: {fontSize:18, color: "#fff"}}}
@@ -15,10 +15,23 @@ export default function Web() {
       />
       <ProjectList/>
     </View>
-    <View style={[{flex:4, backgroundColor:"#bbb"}]}>
+      <View style={[{flex:1, backgroundColor:"#abdaff"}]}>
+          <View style={[styles.rounded, {
+      height: 40,
+      borderRadius: 15,
+      backgroundColor: "#fff",
+      margin:10, 
+      marginBottom:0, 
+      justifyContent:"center", 
+      alignItems:"center",
+    }]}>
+    <Text style={{fontWeight:"bold"}}>Project Name</Text>
+    </View>
+
       <Tasklist/>
     </View>
-    <View style={[styles.centered, {flex:3}]}>
+    
+    <View style={[styles.centered, {minWidth:400}]}>
       <Text>Task PlaceHolder</Text>
     </View>
     

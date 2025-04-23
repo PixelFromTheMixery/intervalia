@@ -9,19 +9,21 @@ export const styles = StyleSheet.create({
 	taskListSummary:{
 		flexDirection:"row",
 		flex:1,
-		padding: 10,
+		paddingHorizontal: 30,
 		backgroundColor:"#fff",
 		height: 60,		
 		justifyContent:"space-between",
 		alignItems: "center",
-		borderRadius:15
 	},
+
+  rounded:{
+    borderRadius:15
+  },
 
 	hero:{
 		backgroundColor: "#1f39ff",
 		alignItems: "center",
 		margin: 5,
-		borderRadius: 15
 	},
 	
 	hero_text:{

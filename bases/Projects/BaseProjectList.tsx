@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { View } from "react-native";
-import { ListItem, Icon } from "@rneui/themed";
+import { ListItem, Icon, Badge } from "@rneui/themed";
 
 export default function BaseList() {
+  const [expanded, setExpanded] = useState(false);
+    
   const titles=[
     "Today",
     "Tomorrow",
@@ -14,13 +17,17 @@ export default function BaseList() {
   
   return (
     <View>
-      <ListItem.Accordion
+      <ListItem.Accordion 
+        bottomDivider
 				content={
           <>
-          <Icon name="folder" style={{ paddingRight: 15 }} />
+          <Icon name="home" style={{ paddingRight: 15 }} />
           <ListItem.Content>
             <ListItem.Title>Basic Lists</ListItem.Title>
-            <ListItem.Subtitle>20 Tasks 400 Mins</ListItem.Subtitle>
+            <ListItem.Subtitle>400 Mins</ListItem.Subtitle>
+          </ListItem.Content>
+          <ListItem.Content right>
+            <Badge value="14" />
           </ListItem.Content>
           </>
         }
@@ -33,14 +40,17 @@ export default function BaseList() {
           titles.map((l, i) => (
           <ListItem key={i} bottomDivider>          
             <ListItem.Content style={{minWidth:150}}>
-              <ListItem.Subtitle>
+              <ListItem.Title>
                 {l}
+              </ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Content>
+              <ListItem.Subtitle>
+                Xh Ym
               </ListItem.Subtitle>
             </ListItem.Content>
             <ListItem.Content right>
-              <ListItem.Subtitle>
-                Xh Ym | Z
-              </ListItem.Subtitle>
+              <Badge value="14" />
             </ListItem.Content>
           </ListItem>
         ))}

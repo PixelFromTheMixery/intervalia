@@ -1,6 +1,7 @@
 import { styles } from "@shared/stylesheet";
 import ProjectList from "@bases/Projects"
 import Tasklist from "@bases/TaskList"
+import TaskDetails from "@bases/Task";
 
 import { View } from "react-native";
 import { Header, Text } from "@rneui/themed";
@@ -31,8 +32,12 @@ export default function Web() {
       <Tasklist/>
     </View>
     
-    <View style={[styles.centered, {minWidth:400}]}>
-      <Text>Task PlaceHolder</Text>
+    <View style={[{flex:1, minWidth:400}]}>
+    <Header
+      leftComponent={{icon: "visibility", color:"#fff"}}
+      centerComponent={{text: "Task Name", style: {fontSize:18, color: "#fff"}}}
+      />
+      <TaskDetails/>
     </View>
     
   </View>;

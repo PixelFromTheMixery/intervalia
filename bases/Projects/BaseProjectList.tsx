@@ -14,7 +14,6 @@ export default function BaseList() {
     "All Tasks",
   ]
   
-  
   return (
     <View>
       <ListItem.Accordion 

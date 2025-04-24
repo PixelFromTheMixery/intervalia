@@ -32,6 +32,16 @@ export default function TaskList() {
               <Task/>
               <Task/>
               <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
+              <Task/>
             </View>
             <ListItem.Accordion
             topDivider

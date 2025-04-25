@@ -3,7 +3,7 @@ import { styles } from "@shared/stylesheet";
 import { Icon, ListItem, Switch } from "@rneui/themed";
 import { useState } from "react";
 import { Modal, Platform, ScrollView, View } from "react-native";
-import StatusButtons from "@shared/components/StatusButtons";
+import StatusButtons from "@components/StatusButtons";
 
 export default function TaskDetails() {
 	const [check, setCheck] = useState(false);

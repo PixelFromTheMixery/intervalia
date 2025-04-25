@@ -4,5 +4,7 @@ import React from "react";
 import { useColorScheme, View } from "react-native";
 
 export default function App() {
-	return <Shell/>
+	return (
+		<Shell/>
+	)
 }

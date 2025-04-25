@@ -2,12 +2,16 @@ import { styles } from "@shared/stylesheet";
 import ProjectList from "@bases/Projects"
 import Tasklist from "@bases/TaskList"
 import TaskDetails from "@bases/Task";
+import { useUi } from "@shared/uiContext";
+
 
 import { View } from "react-native";
 import { Header, Text } from "@rneui/themed";
 
 export default function Web() {
-	return <View style={{ flexDirection: "row", flex: 1}}>
+	const { projectName } = useUi();
+  
+  return <View style={{ flexDirection: "row", flex: 1}}>
     <View style={{minWidth:300}}>
       <Header
       leftComponent={{icon: "menu", color:"#fff"}}
@@ -26,7 +30,7 @@ export default function Web() {
         justifyContent:"center", 
         alignItems:"center",
       }]}>
-        <Text style={{fontWeight:"bold"}}>Project Name</Text>
+        <Text style={{fontWeight:"bold"}}>{projectName}</Text>
       </View>
       <Tasklist/>
     </View>

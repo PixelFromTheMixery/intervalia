@@ -1,4 +1,4 @@
-import StatusButtons from "@shared/components/StatusButtons";
+import StatusButtons from "@components/StatusButtons";
 
 import { useState } from "react";
 import { ListItem, Switch} from "@rneui/themed";

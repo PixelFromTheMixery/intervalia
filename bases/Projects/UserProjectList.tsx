@@ -1,5 +1,8 @@
+import WebProjectItems from "@components/Web/web_projectItems";
+import AppProjectItems from "@components/Android/app_projectItems";
+
 import { useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import { Badge, ListItem, Icon } from "@rneui/themed";
 
 export default function UserList() {
@@ -27,21 +30,19 @@ export default function UserList() {
 					setExpanded(!expanded);
 				}}
 			>
-				<ListItem>
-					<ListItem.Content style={{minWidth:150}}>
-						<ListItem.Title>
-							Project
-							</ListItem.Title>
-					</ListItem.Content>
-					<ListItem.Content>
-						<ListItem.Subtitle>
-							Xh Ym
-						</ListItem.Subtitle>
-					</ListItem.Content>
-					<ListItem.Content right>
-						<Badge value="14" />
-					</ListItem.Content>
-				</ListItem>
+				{Platform.OS == "web" ? 
+				(
+					WebProjectItems(0, {
+						name:"testProject", 
+						time: "1h 30m",
+						count: 1
+					})):
+				(
+					AppProjectItems(0, {
+						name:"testProject", 
+						time: "1h 30m",
+						count: 1
+				}))}
 			</ListItem.Accordion>
 			<ListItem.Accordion
 				content={

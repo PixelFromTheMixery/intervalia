@@ -1,7 +1,7 @@
 import { styles } from "@shared/stylesheet";
 import Summary from "@bases/TaskList/Details";
-import AppTask from "@components/Android/Task";
-import WebTask from "@components/Web/Task";
+import AppTask from "@components/Android/app_taskItem";
+import WebTask from "@components/Web/web_taskItem";
 import TaskCompleted from "@components/TaskCompExample";
 
 import { useState } from "react";

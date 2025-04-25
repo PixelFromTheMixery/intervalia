@@ -1,11 +1,12 @@
+import { UiProvider } from "@shared/uiContext";
 import Web from "@bases/Web";
 import Android from "@bases/Android";
 
 import { Platform, View } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
-export function Shell() {
-	return (
+export const Shell = () => (
+	<UiProvider>
 		<SafeAreaProvider>
 			<SafeAreaView style={{flex: 1}}>
 				<View  style={{flex: 1}}>
@@ -13,5 +14,5 @@ export function Shell() {
 				</View>
 			</SafeAreaView>
 		</SafeAreaProvider>
-	);
-}
+	</UiProvider>
+)

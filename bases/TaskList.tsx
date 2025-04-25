@@ -1,24 +1,22 @@
 import { styles } from "@shared/stylesheet";
 import Summary from "@bases/TaskList/Details";
-import Task from "@components/Task";
+import AppTask from "@components/Android/Task";
+import WebTask from "@components/Web/Task";
 import TaskCompleted from "@components/TaskCompExample";
 
-
 import { useState } from "react";
-import { View, ScrollView, } from "react-native";
+import { View, ScrollView, Platform, } from "react-native";
 import { Icon, ListItem } from "@rneui/themed";
 
 export default function TaskList() {
   const [expanded, setExpanded] = useState(false);
     
   return (
-    <View style={{flex:1}}>
       <View style={{
         flex:1,
         backgroundColor: "#abdaff"
         }}>
         <Summary/>
-        <View style={{flex:1}}>
           <ScrollView 
             style={[styles.rounded, {
               height: 40,
@@ -29,19 +27,33 @@ export default function TaskList() {
               marginTop:0, 
           }]}>
             <View>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
-              <Task/>
+              {Platform.OS === "web" ? (
+                <>
+                  <WebTask taskName="Task name that is long to test word wrap" />
+                  <WebTask taskName="That" />
+                  <WebTask taskName="The other" />
+                  <WebTask taskName="Again" />
+                  <WebTask taskName="This" />
+                  <WebTask taskName="This" />
+                  <WebTask taskName="This" />
+                  <WebTask taskName="This" />
+                  <WebTask taskName="This" />
+                  <WebTask taskName="This" />
+                </>
+              ) : (
+                <>
+                  <AppTask taskName="Task name that is long to test word wrap" />
+                  <AppTask taskName="That" />
+                  <AppTask taskName="The other" />
+                  <AppTask taskName="Again" />
+                  <AppTask taskName="This" />
+                  <AppTask taskName="This" />
+                  <AppTask taskName="This" />
+                  <AppTask taskName="This" />
+                  <AppTask taskName="This" />
+                  <AppTask taskName="This" />
+                </>
+              )}
             </View>
             <ListItem.Accordion
             topDivider
@@ -64,7 +76,5 @@ export default function TaskList() {
 
           </ScrollView>
           </View>
-      </View>
-    </View>
   );
 }

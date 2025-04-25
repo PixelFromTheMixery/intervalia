@@ -16,7 +16,7 @@ export default function Web() {
       />
       <ProjectList/>
       </View>
-        <View style={[{flex:1, backgroundColor:"#abdaff"}]}>
+        <View style={[{flex:2, backgroundColor:"#abdaff"}]}>
             <View style={[styles.rounded, {
         height: 40,
         borderRadius: 15,
@@ -31,7 +31,7 @@ export default function Web() {
       <Tasklist/>
     </View>
     
-    <View style={[{minWidth:400}]}>
+    <View style={[{flex:1}]}>
     <Header
       leftComponent={{icon: "visibility", color:"#fff"}}
       centerComponent={{text: "Task Name", style: {fontSize:18, color: "#fff"}}}

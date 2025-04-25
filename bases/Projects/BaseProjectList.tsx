@@ -6,10 +6,15 @@ import { Platform} from "react-native";
 import { ListItem, Icon} from "@rneui/themed";
 
 export default function BaseList() {
+  /*For Accordian*/
   const [expanded, setExpanded] = useState(false);
 
+  /*
+  Simple List values
+  Potential revert to just titles and use sql queries for other info
+  */
   const titles=[
-    {name:"Today", time: "30m", count: 1},
+    {name:"Today", time: "30m", count: 24},
     {name:"Tomorrow", time: "30m", count: 1},
     {name:"This Week", time: "30m", count: 1},
     {name:"Due Date", time: "30m", count: 1},
@@ -18,6 +23,10 @@ export default function BaseList() {
     {name:"Today", time: "30m", count: 1},
   ]
 
+  /*
+  Returns a expanding list of Views, each with a name, total time, total task count
+  Seperated by platform because Android Navigation breaks web side
+  */
   return (
     <ListItem.Accordion 
       bottomDivider
@@ -25,7 +34,7 @@ export default function BaseList() {
         <>
           <Icon name="home" style={{ paddingRight: 15 }} />
           <ListItem.Content>
-            <ListItem.Title>Basic Lists</ListItem.Title>
+            <ListItem.Title>Basic Views</ListItem.Title>
           </ListItem.Content>
         </>
       }

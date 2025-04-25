@@ -2,8 +2,11 @@ import { ListItem, Icon } from "@rneui/themed";
 import { useState } from "react";
 import { Platform } from "react-native";
 
-export default function StatusButtons() {
-	const [selectedButtonIndex, setSelectedButtonIndex] = useState(0);
+
+export default function StatusButtons(
+	status: number
+	){
+	const [selectedButtonIndex, setSelectedButtonIndex] = useState(status);
   return (
 		<ListItem.ButtonGroup
       containerStyle={Platform.OS == "web" ? {width:150,} : {width:"100%"}}
@@ -16,5 +19,5 @@ export default function StatusButtons() {
       selectedIndex={selectedButtonIndex}
       onPress={(index) => setSelectedButtonIndex(index)}
 		/>
-	);
+	)
 }

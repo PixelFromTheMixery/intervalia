@@ -1,20 +1,29 @@
-import { styles } from "@shared/stylesheet";
-
 import { Icon, ListItem, Switch } from "@rneui/themed";
 import { useState } from "react";
-import { Modal, Platform, ScrollView, View } from "react-native";
 import StatusButtons from "@components/StatusButtons";
 
 export default function TaskDetails() {
-	const [check, setCheck] = useState(false);
+	
+	/*for UI elements of Task Screen */
 	const [switched, setSwitched] = useState(false);
 	const [complete, setComplete] = useState(false);
 
+	/*
+	Returns a list of: 
+		Interactive Menu for updating the task and opening task edit menu
+		view-only details about the task
+			Summary
+			Definition of Done
+			Notes and Link
+			Url and Link
+			Focus and Break time
+	Currently hard-coded but will be populated by database info
+	*/
 	return (
 		<>
 			<ListItem topDivider>
 				<ListItem.Content>
-          <StatusButtons/>
+          {StatusButtons(1)}
 				</ListItem.Content>
 				{!complete && (
 					<ListItem.Content right>

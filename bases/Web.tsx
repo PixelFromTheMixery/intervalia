@@ -9,9 +9,20 @@ import { View } from "react-native";
 import { Header, Text } from "@rneui/themed";
 
 export default function Web() {
-	const { projectName } = useUi();
-  
-  return <View style={{ flexDirection: "row", flex: 1}}>
+
+  /*Used for selected UI Elements*/
+  const { projectName } = useUi();
+
+  /*
+  Single screen application with:
+    Headers for views as there is no navigation feature 
+    Project List on left
+      Will be updated to be a hidden toolbar
+    (Wide)Task List based on project
+    Task Details View
+  */
+  return (
+  <View style={{ flexDirection: "row", flex: 1}}>
     <View style={{minWidth:300}}>
       <Header
       leftComponent={{icon: "menu", color:"#fff"}}
@@ -30,18 +41,18 @@ export default function Web() {
         justifyContent:"center", 
         alignItems:"center",
       }]}>
-        <Text style={{fontWeight:"bold"}}>{projectName}</Text>
+        <Text>{projectName}</Text>
       </View>
       <Tasklist/>
     </View>
     
-    <View style={[{flex:1}]}>
-    <Header
-      leftComponent={{icon: "visibility", color:"#fff"}}
-      centerComponent={{text: "Task Name", style: {fontSize:18, color: "#fff"}}}
-      />
-      <TaskDetails/>
+      <View style={[{flex:1}]}>
+        <Header
+          leftComponent={{icon: "visibility", color:"#fff"}}
+          centerComponent={{text: "Task Name", style: {fontSize:18, color: "#fff"}}}
+        />
+        <TaskDetails/>
+      </View>    
     </View>
-    
-  </View>;
+  )
 }

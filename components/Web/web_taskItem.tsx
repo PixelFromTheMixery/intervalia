@@ -16,7 +16,7 @@ export default function WebTask({ taskName }: { taskName: string }) {
     }}
   >
     <View>
-      <StatusButtons/>
+      {StatusButtons(2)}
     </View>
 
     <View style={{ flex: 1, paddingHorizontal: 8 }}>

@@ -2,6 +2,8 @@ import { ListItem } from "@rneui/themed"
 import ProjectItem from "@components/projectItem"
 import { useUi } from "@shared/uiContext";
 
+/*Project list item with  functionality*/
+
 export default function WebProjectItems(
   i: number, 
   item: {

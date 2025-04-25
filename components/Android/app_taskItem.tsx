@@ -8,11 +8,20 @@ import { ListItem, Switch} from "@rneui/themed";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'List'>;
 
+
+/*
+Task list item with dynamically generated status, name, activation
+  Assumingly supplied from database
+Phone navigation functionality and update selected ui item
+*/
+
+
 export default function AppTask({ taskName }: { taskName: string }) {
   const navigation = useNavigation<NavigationProp>();
   
   const [switched, setSwitched] = useState(false);
   const [complete, setComplete] = useState(false);
+
   return(
     <ListItem 
     topDivider
@@ -22,7 +31,7 @@ export default function AppTask({ taskName }: { taskName: string }) {
         <ListItem.Title style={{paddingBottom:10}}>
         {taskName}
         </ListItem.Title>  
-        <StatusButtons />
+          {StatusButtons(3)}
       </ListItem.Content>
       {!complete && (
         <Switch

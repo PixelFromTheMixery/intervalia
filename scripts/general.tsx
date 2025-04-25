@@ -17,7 +17,7 @@ export async function fetchDatabase() {
 }
 
 export async function fetchTask() {
-  const res = await fetch("http://127.0.0.1:8001/api/v1/local/tasl");
+  const res = await fetch("http://127.0.0.1:8001/api/v1/local/task");
   if (!res.ok) throw new Error("Failed to fetch");
   return await res.json();
 }

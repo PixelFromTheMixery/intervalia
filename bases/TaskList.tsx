@@ -9,8 +9,17 @@ import { View, ScrollView, Platform, } from "react-native";
 import { Icon, ListItem } from "@rneui/themed";
 
 export default function TaskList() {
+  /*For Accordian*/
   const [expanded, setExpanded] = useState(false);
-    
+  
+  /*
+  Returns a prett background element with a non functioning list of items containing following:
+    Interactive buttons for updating status
+    Task Name
+    Activate timer on task
+  Currently hard coded but will be generated from database
+  Non-operating completed task list to remove clutter
+  */
   return (
       <View style={{
         flex:1,

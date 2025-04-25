@@ -4,6 +4,10 @@ import { View } from "react-native";
 import { Text } from "@rneui/themed";
 
 export default function Summary() {
+  /*
+  Returns a simple project summary at the top of the screen. 
+  This contains the number of active tasks and estimated time 
+  */
   return (
     <>
     <View style={{flexDirection:"row", justifyContent:"space-evenly"}}>

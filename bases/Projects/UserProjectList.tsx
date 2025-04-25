@@ -6,10 +6,18 @@ import { Platform, View } from "react-native";
 import { Badge, ListItem, Icon } from "@rneui/themed";
 
 export default function UserList() {
-
+  /*
+	For Accordians,
+	May be dynamically generated for the categories
+	*/
 	const [expanded, setExpanded] = useState(false);
 	const [tagExpanded, setTagExpanded] = useState(false);
-	
+	/*
+	Returns a series of folders for each notion project category and its internal project
+	Each category has a summary of the time and task count
+	Currently hard coded but will reference database
+	*/
+
 	return (
 		<View>
 			<ListItem.Accordion
@@ -49,7 +57,7 @@ export default function UserList() {
 					<>
 						<Icon name="tag" style={{ paddingRight: 15 }} />
 						<ListItem.Content>
-							<ListItem.Title>Tag</ListItem.Title>
+							<ListItem.Title>Tags</ListItem.Title>
 							<ListItem.Subtitle>400 Mins</ListItem.Subtitle>
 						</ListItem.Content>
 						<ListItem.Content right>
@@ -63,19 +71,19 @@ export default function UserList() {
 					setTagExpanded(!tagExpanded);
 				}}
 			>
-				<ListItem>
-					<ListItem.Content style={{minWidth:150}}>
-						<ListItem.Title>Project</ListItem.Title>
-					</ListItem.Content>
-					<ListItem.Content>
-						<ListItem.Subtitle>
-							Xh Ym
-						</ListItem.Subtitle>
-					</ListItem.Content>
-					<ListItem.Content right>
-						<Badge value="14" />
-					</ListItem.Content>
-				</ListItem>
+				{Platform.OS == "web" ? 
+				(
+					WebProjectItems(0, {
+						name:"testProject", 
+						time: "1h 30m",
+						count: 1
+					})):
+				(
+					AppProjectItems(0, {
+						name:"testProject", 
+						time: "1h 30m",
+						count: 1
+				}))}
 			</ListItem.Accordion>
 		</View>
 	);

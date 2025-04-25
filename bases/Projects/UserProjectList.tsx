@@ -3,8 +3,10 @@ import { View } from "react-native";
 import { Badge, ListItem, Icon } from "@rneui/themed";
 
 export default function UserList() {
+
 	const [expanded, setExpanded] = useState(false);
 	const [tagExpanded, setTagExpanded] = useState(false);
+	
 	return (
 		<View>
 			<ListItem.Accordion

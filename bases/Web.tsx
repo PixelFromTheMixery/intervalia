@@ -15,24 +15,23 @@ export default function Web() {
       rightComponent={{icon: "visibility", color:"#fff"}}
       />
       <ProjectList/>
-    </View>
-      <View style={[{flex:1, backgroundColor:"#abdaff"}]}>
-          <View style={[styles.rounded, {
-      height: 40,
-      borderRadius: 15,
-      backgroundColor: "#fff",
-      margin:10, 
-      marginBottom:0, 
-      justifyContent:"center", 
-      alignItems:"center",
-    }]}>
-    <Text style={{fontWeight:"bold"}}>Project Name</Text>
-    </View>
-
+      </View>
+        <View style={[{flex:1, backgroundColor:"#abdaff"}]}>
+            <View style={[styles.rounded, {
+        height: 40,
+        borderRadius: 15,
+        backgroundColor: "#fff",
+        margin:10, 
+        marginBottom:0, 
+        justifyContent:"center", 
+        alignItems:"center",
+      }]}>
+        <Text style={{fontWeight:"bold"}}>Project Name</Text>
+      </View>
       <Tasklist/>
     </View>
     
-    <View style={[{flex:1, minWidth:400}]}>
+    <View style={[{minWidth:400}]}>
     <Header
       leftComponent={{icon: "visibility", color:"#fff"}}
       centerComponent={{text: "Task Name", style: {fontSize:18, color: "#fff"}}}

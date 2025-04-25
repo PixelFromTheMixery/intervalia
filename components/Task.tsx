@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ListItem, Switch} from "@rneui/themed";
-import { ScrollView } from "react-native";
 
 export default function Task() {
-  
+
   const [check, setCheck] = useState(false);
   const [switched, setSwitched] = useState(false);
   const [complete, setComplete] = useState(false);

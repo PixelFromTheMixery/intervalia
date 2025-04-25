@@ -45,8 +45,17 @@ export default function TaskDetails() {
         <ListItem.Content right>
           <Icon name="edit"/>
         </ListItem.Content>
-
       </ListItem>
+
+      <ListItem topDivider>
+        <ListItem.Content>
+            <ListItem.ButtonGroup
+            buttonStyle={{alignItems:"stretch"}}
+            buttons={["To do", "In Progress", "Blocked", "Done"]}
+            />
+        </ListItem.Content>
+      </ListItem>
+
       <ListItem topDivider>
         <ListItem.Content>
           <ListItem.Title>
@@ -75,16 +84,6 @@ export default function TaskDetails() {
         </ListItem.Content>
       </ListItem>
       
-      <ListItem topDivider>
-        <ListItem.Content>
-          <ListItem.Title>
-            Status
-          </ListItem.Title>
-          <ListItem.ButtonGroup
-          buttons={["To do", "In Progress", "Blocked", "Done"]}
-          />
-        </ListItem.Content>
-      </ListItem>
       <ListItem topDivider>
         <ListItem.Content>
           <ListItem.Title>

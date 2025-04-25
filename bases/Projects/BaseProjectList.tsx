@@ -4,7 +4,7 @@ import { ListItem, Icon, Badge } from "@rneui/themed";
 
 export default function BaseList() {
   const [expanded, setExpanded] = useState(false);
-    
+
   const titles=[
     "Today",
     "Tomorrow",
@@ -13,7 +13,7 @@ export default function BaseList() {
     "No Due Date",
     "All Tasks",
   ]
-  
+
   return (
     <View>
       <ListItem.Accordion 
@@ -37,7 +37,9 @@ export default function BaseList() {
 >
           {
           titles.map((l, i) => (
-          <ListItem key={i} bottomDivider>          
+          <ListItem 
+            key={i} 
+            bottomDivider>
             <ListItem.Content style={{minWidth:150}}>
               <ListItem.Title>
                 {l}

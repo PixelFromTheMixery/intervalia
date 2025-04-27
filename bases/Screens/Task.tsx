@@ -23,7 +23,8 @@ export default function TaskDetails() {
 		<>
 			<ListItem topDivider>
 				<ListItem.Content>
-          {StatusButtons(1)}
+          <StatusButtons
+					status={3}/>
 				</ListItem.Content>
 				{!complete && (
 					<ListItem.Content right>

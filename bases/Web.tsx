@@ -1,7 +1,7 @@
 import { styles } from "@shared/stylesheet";
-import ProjectList from "@bases/Projects"
-import Tasklist from "@bases/TaskList"
-import TaskDetails from "@bases/Task";
+import ProjectScreen from "@bases/Screens/Projects";
+import Tasklist from "@bases/Screens/TaskList"
+import TaskDetails from "@bases/Screens/Task";
 import { useUi } from "@shared/uiContext";
 
 
@@ -29,7 +29,7 @@ export default function Web() {
       centerComponent={{text: "Projects", style: {fontSize:18, color: "#fff"}}}
       rightComponent={{icon: "visibility", color:"#fff"}}
       />
-      <ProjectList/>
+      <ProjectScreen/>
       </View>
         <View style={[{flex:2, backgroundColor:"#abdaff"}]}>
             <View style={[styles.rounded, {

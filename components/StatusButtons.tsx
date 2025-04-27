@@ -1,23 +1,57 @@
-import { ListItem, Icon } from "@rneui/themed";
+import { ListItem, Button, Overlay } from "@rneui/themed";
 import { useState } from "react";
-import { Platform } from "react-native";
+import { View } from "react-native";
+
+const statuses = [
+  'To Do',
+  'Doing',
+  'Blocked',
+  'Done',
+  'Repeating',
+  'Ongoing',
+];
 
 
 export default function StatusButtons(
-	status: number
+	{status}: {status: number}
 	){
-	const [selectedButtonIndex, setSelectedButtonIndex] = useState(status);
-  return (
-		<ListItem.ButtonGroup
-      containerStyle={Platform.OS == "web" ? {width:150,} : {width:"100%"}}
-			buttons={[
-				<Icon name="radio-button-unchecked" />,
-				<Icon name="schedule" />,
-				<Icon name="block" />,
-				<Icon name="task-alt" />,
-			]}
-      selectedIndex={selectedButtonIndex}
-      onPress={(index) => setSelectedButtonIndex(index)}
-		/>
-	)
+		const [visible, setVisible] = useState(false);
+	 	const [selectedStatus, setSelectedStatus] = useState(statuses[status]);
+
+		const selectStatus = (status: string) => {
+    setSelectedStatus(status);
+    setVisible(false);
+		};
+		 return (
+    <>
+      <Button
+        title={selectedStatus}
+        onPress={() => setVisible(true)}
+				style={{width:100}}
+      />
+      <Overlay
+        isVisible={visible}
+        onBackdropPress={() => setVisible(false)}
+        overlayStyle={{
+          width: '80%',
+          borderRadius: 10,
+          padding: 10,
+        }}
+      >
+        <View>
+          {statuses.map((status) => (
+            <ListItem 
+              key={status} 
+              onPress={() => selectStatus(status)}
+              bottomDivider
+            >
+              <ListItem.Content>
+                <ListItem.Title>{status}</ListItem.Title>
+              </ListItem.Content>
+            </ListItem>
+          ))}
+        </View>
+      </Overlay>
+    </>
+  );
 }

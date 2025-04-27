@@ -7,8 +7,8 @@ type uiContextType = {
   setProjectCount: (name: string) => void;
   projectTime: string;
   setProjectTime: (name: string) => void;
-  selectedTaskName: string;
-  setSelectedTaskName: (name: string) => void;
+  taskName: string;
+  setTaskName: (name: string) => void;
 };
 
 const UiContext = createContext<uiContextType | undefined>(undefined);
@@ -21,13 +21,13 @@ export const UiProvider = ({ children }: uiProviderProps) => {
   const [projectName, setProjectName] = useState("Today");
   const [projectCount, setProjectCount] = useState("3");
   const [projectTime, setProjectTime] = useState("40m");
-  const [selectedTaskName, setSelectedTaskName] = useState("");
+  const [taskName, setTaskName] = useState("");
   return (
     <UiContext.Provider value={{ 
     projectName, setProjectName,
     projectCount, setProjectCount,
     projectTime, setProjectTime,
-    selectedTaskName, setSelectedTaskName, 
+    taskName, setTaskName, 
     }}>
       {children}
     </UiContext.Provider>

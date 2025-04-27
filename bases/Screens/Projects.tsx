@@ -1,10 +1,11 @@
-import BaseList from "@bases/Projects/BaseProjectList"
-import UserList from "@bases/Projects/UserProjectList"
+
+
+import ProjectList from "@components/ProjectLists";
 import { Input, Text } from "@rneui/themed";
 
 import { View, ScrollView } from "react-native";
 
-export default function ProjectList() {
+export default function ProjectScreen() {
   /*
   Returns a non-functioning search bar and Project View Lists
   */
@@ -16,8 +17,7 @@ export default function ProjectList() {
           leftIcon={{name: "search"}}>
         </Input>
         <View style={{marginRight:10}}>
-          <BaseList/>
-          <UserList/>
+          <ProjectList/>
         </View>
       </ScrollView>
     </View>

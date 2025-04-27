@@ -1,17 +1,21 @@
 import { Badge, ListItem, Text } from "@rneui/themed";
 import { View } from "react-native";
 
-export default function ProjectItem(
+export default function ProjectListItem(
   { projectName, 
     projectTime, 
-    projectCount 
+    projectCount,
+    onPress
   }: { 
     projectName: string; 
     projectTime: string;
-    projectCount: string
+    projectCount: string;
+    onPress: () => void
   }){
+
+    
   return(
-      <ListItem.Content style={{flexDirection: "row", minWidth:150}}>
+      <ListItem onPress={onPress} style={{flexDirection: "row", minWidth:150}}>
         <View style={{flex:1}}>
           <ListItem.Title>{projectName}</ListItem.Title>
         </View>
@@ -21,6 +25,5 @@ export default function ProjectItem(
         <View style={{paddingHorizontal:8}}>
           <Badge value={projectCount} />
         </View>
-
-      </ListItem.Content>
+      </ListItem>
 );}

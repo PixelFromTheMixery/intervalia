@@ -1,14 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import ProjectList from '@bases/Projects';
-import TaskList from '@bases/TaskList';
-import TaskDetails from '@bases/Task';
+import ProjectList from '@bases/Screens/Projects';
+import TaskList from '@bases/Screens/TaskList';
+import TaskDetails from '@bases/Screens/Task';
 
 export type RootStackParamList = {
   Home: undefined;
-  List: { projectName: string };
-  Details: { taskName: string };
+  Project: { projectName: string };
+  Task: { taskName: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -23,12 +24,12 @@ export default function Navigation() {
           options={{ title: 'Projects' }}
         />
         <Stack.Screen
-          name="List"
+          name="Project"
           component={TaskList}
           options={({ route }) => ({ title: route.params.projectName })}
         />
         <Stack.Screen
-          name="Details"
+          name="Task"
           component={TaskDetails}
           options={({ route }) => ({ title: route.params.taskName })}
         />
@@ -36,3 +37,6 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
+export type NavigationPropProject = NativeStackNavigationProp<RootStackParamList, 'Project'>;
+export type NavigationPropTask = NativeStackNavigationProp<RootStackParamList, 'Task'>;

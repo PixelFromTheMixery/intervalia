@@ -3,7 +3,7 @@ import AppProjectItems from "@components/Android/app_projectItems";
 
 import { useState } from "react";
 import { Platform} from "react-native";
-import { ListItem, Icon} from "@rneui/themed";
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
 
 export default function BaseList() {
   /*For Accordian*/
@@ -28,6 +28,12 @@ export default function BaseList() {
   Seperated by platform because Android Navigation breaks web side
   */
   return (
+		<Drawer>
+			<DrawerItem>
+				<Text>Test</Text>
+			</DrawerItem>
+		</Drawer>)}
+    /*
     <ListItem.Accordion 
       bottomDivider
       content={
@@ -52,4 +58,4 @@ export default function BaseList() {
       )))}
     </ListItem.Accordion>
   )
-}
+}*/

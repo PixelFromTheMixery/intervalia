@@ -1,14 +1,14 @@
-import StatusButtons from "@components/StatusButtons";
 
 import { useState } from "react";
-import { ListItem, Switch} from "@rneui/themed";
 import { Platform, View } from "react-native";
 
 export default function WebTask({ taskName }: { taskName: string }) {
   const [switched, setSwitched] = useState(false);
   const [complete, setComplete] = useState(false);
   return(
-      <ListItem topDivider>
+
+    {/*
+<ListItem topDivider>
   <ListItem.Content
     style={{
       flexDirection: "row",
@@ -32,5 +32,5 @@ export default function WebTask({ taskName }: { taskName: string }) {
       />
     )}
   </ListItem.Content>
-</ListItem>
+</ListItem>*/}
 );}

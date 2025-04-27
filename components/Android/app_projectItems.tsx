@@ -4,7 +4,7 @@ import { useUi } from "@shared/uiContext";
 
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { ListItem } from "@rneui/themed"
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'List'>;
 
@@ -24,6 +24,13 @@ export default function AppProjectItems(
   const navigation = useNavigation<NavigationProp>();
   const { setProjectName } = useUi();
 
+  	return (
+		<Drawer>
+			<DrawerItem>
+				<Text>Test</Text>
+			</DrawerItem>
+		</Drawer>)}
+/*
   return(
     <ListItem 
       key={i} 
@@ -37,4 +44,4 @@ export default function AppProjectItems(
         projectCount={item.count.toString()
         }/>
     </ListItem>
-)}
+)}*/

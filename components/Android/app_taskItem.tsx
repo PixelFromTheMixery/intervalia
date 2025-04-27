@@ -4,7 +4,6 @@ import StatusButtons from "@components/StatusButtons";
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useState } from "react";
-import { ListItem, Switch} from "@rneui/themed";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'List'>;
 
@@ -23,22 +22,9 @@ export default function AppTask({ taskName }: { taskName: string }) {
   const [complete, setComplete] = useState(false);
 
   return(
-    <ListItem 
-    topDivider
-    onPress={() => navigation.navigate('Details', {taskName: taskName})}
-      >
-      <ListItem.Content>
-        <ListItem.Title style={{paddingBottom:10}}>
-        {taskName}
-        </ListItem.Title>  
-          {StatusButtons(3)}
-      </ListItem.Content>
-      {!complete && (
-        <Switch
-          value={switched}
-          onValueChange={(value) => setSwitched(value)}
-        />
-      )}
-
-    </ListItem>
+    <Drawer>
+      <DrawerItem>
+        <Text>Test</Text>
+      </DrawerItem>
+    </Drawer>
 );}

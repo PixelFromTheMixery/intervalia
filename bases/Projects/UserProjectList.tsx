@@ -3,7 +3,7 @@ import AppProjectItems from "@components/Android/app_projectItems";
 
 import { useState } from "react";
 import { Platform, View } from "react-native";
-import { Badge, ListItem, Icon } from "@rneui/themed";
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
 
 export default function UserList() {
   /*
@@ -19,7 +19,14 @@ export default function UserList() {
 	*/
 
 	return (
-		<View>
+		<Drawer>
+			<DrawerItem>
+				<Text>Test</Text>
+			</DrawerItem>
+		</Drawer>)}
+
+/*
+<View>
 			<ListItem.Accordion
 				content={
 					<>
@@ -88,3 +95,4 @@ export default function UserList() {
 		</View>
 	);
 }
+*/

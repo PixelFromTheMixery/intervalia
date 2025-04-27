@@ -1,6 +1,8 @@
-import { ListItem } from "@rneui/themed"
 import ProjectItem from "@components/projectItem"
 import { useUi } from "@shared/uiContext";
+
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
+
 
 /*Project list item with  functionality*/
 
@@ -13,14 +15,8 @@ export default function WebProjectItems(
   }){
   const { setProjectName } = useUi();
   return(
-    <ListItem 
-      key={i} 
-      bottomDivider
-      onPress={() => {setProjectName(item.name)}}>
-      <ProjectItem 
-        projectName={item.name}
-        projectTime={item.time}
-        projectCount={item.count.toString()
-        }/>
-    </ListItem>
-)}
+    <Drawer>
+      <DrawerItem>
+        <Text>Base List</Text>
+      </DrawerItem>
+    </Drawer>)}

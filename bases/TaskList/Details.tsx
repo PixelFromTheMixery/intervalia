@@ -1,7 +1,7 @@
 import { styles } from "@shared/stylesheet";
 
 import { View } from "react-native";
-import { Text } from "@rneui/themed";
+import { Text } from "@ui-kitten/components";
 
 export default function Summary() {
   /*

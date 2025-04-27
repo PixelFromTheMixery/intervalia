@@ -2,12 +2,10 @@ import { styles } from "@shared/stylesheet";
 import Summary from "@bases/TaskList/Details";
 import AppTask from "@components/Android/app_taskItem";
 import WebTask from "@components/Web/web_taskItem";
-import TaskCompleted from "@components/TaskCompExample";
 
 import { useState } from "react";
 import { View, ScrollView, Platform, } from "react-native";
-import { Icon, ListItem } from "@rneui/themed";
-
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
 export default function TaskList() {
   /*For Accordian*/
   const [expanded, setExpanded] = useState(false);
@@ -64,6 +62,12 @@ export default function TaskList() {
                 </>
               )}
             </View>
+            <Drawer>
+              <DrawerItem>
+                <Text>Test</Text>
+              </DrawerItem>
+            </Drawer>
+            {/*
             <ListItem.Accordion
             topDivider
             content={
@@ -82,8 +86,9 @@ export default function TaskList() {
               <TaskCompleted/>
 
             </ListItem.Accordion>
-
-          </ScrollView>
-          </View>
+            */}
+      </ScrollView>
+    </View>
+          
   );
 }

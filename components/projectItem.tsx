@@ -1,4 +1,4 @@
-import { Badge, ListItem, Text } from "@rneui/themed";
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
 import { View } from "react-native";
 
 export default function ProjectItem(
@@ -10,7 +10,14 @@ export default function ProjectItem(
     projectTime: string;
     projectCount: string
   }){
-  return(
+    	return (
+		<Drawer>
+			<DrawerItem>
+				<Text>Test</Text>
+			</DrawerItem>
+		</Drawer>)}
+
+/*return(
       <ListItem.Content style={{flexDirection: "row", minWidth:150}}>
         <View style={{flex:1}}>
           <ListItem.Title>{projectName}</ListItem.Title>
@@ -23,4 +30,4 @@ export default function ProjectItem(
         </View>
 
       </ListItem.Content>
-);}
+);}*/

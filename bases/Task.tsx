@@ -1,6 +1,5 @@
-import { Icon, ListItem, Switch } from "@rneui/themed";
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
 import { useState } from "react";
-import StatusButtons from "@components/StatusButtons";
 
 export default function TaskDetails() {
 	
@@ -20,7 +19,12 @@ export default function TaskDetails() {
 	Currently hard-coded but will be populated by database info
 	*/
 	return (
-		<>
+			<Drawer>
+				<DrawerItem>
+					<Text>Test</Text>
+				</DrawerItem>
+			</Drawer>)}
+/*<>
 			<ListItem topDivider>
 				<ListItem.Content>
           {StatusButtons(1)}
@@ -91,5 +95,4 @@ export default function TaskDetails() {
 				</ListItem.Content>
 			</ListItem>
 		</>
-	);
-}
+		*/

@@ -1,6 +1,7 @@
 import BaseList from "@bases/Projects/BaseProjectList"
 import UserList from "@bases/Projects/UserProjectList"
-import { Input, Text } from "@rneui/themed";
+import { Input } from "@ui-kitten/components";
+import { Search } from "lucide-react-native";
 
 import { View, ScrollView } from "react-native";
 
@@ -13,7 +14,7 @@ export default function ProjectList() {
       <ScrollView style={{flex:1}}>
         <Input
           placeholder="Search here"
-          leftIcon={{name: "search"}}>
+          accessoryLeft={<Search/>}>
         </Input>
         <View style={{marginRight:10}}>
           <BaseList/>
